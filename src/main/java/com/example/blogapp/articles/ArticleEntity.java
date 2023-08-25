@@ -11,9 +11,11 @@ import java.util.Date;
 
 @Entity(name = "articles")
 @Getter
+@Builder
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 public class ArticleEntity {
     @Id

@@ -9,6 +9,8 @@ import org.springframework.lang.Nullable;
 
 @Entity(name = "comments")
 @Getter
+@Builder
+@AllArgsConstructor
 @Setter
 @ToString
 @RequiredArgsConstructor

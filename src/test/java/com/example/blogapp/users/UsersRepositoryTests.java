@@ -1,6 +1,7 @@
 package com.example.blogapp.users;
 
 import com.example.blogapp.articles.ArticleEntity;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,15 @@ public class UsersRepositoryTests {
         var user = UserEntity.builder().username("name").email("ksj@gmail.com").build();
 
         usersRepository.save(user);
+    }
+
+    @Test
+    @Order(2)
+    void db_fetch_test() {
+        var user = UserEntity.builder().username("name").email("ksj@gmail.com").build();
+        usersRepository.save(user);
+
+        var usersInDB = usersRepository.findAll();
+        Assertions.assertEquals(1, usersInDB.size());
     }
 }
